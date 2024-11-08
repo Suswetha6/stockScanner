@@ -1,9 +1,16 @@
 import { StockData } from "./data";
 
+// Interface to define a filter condition
 export interface FilterCondition {
   operator: string;
   value: number;
 }
+
+/**
+ * Function to filter an array of stock data based on specified filter conditions.
+ * Each key corresponds to a stock data field, with conditions on value and operator.
+ * @returns {StockData[]} - A filtered array of stock data objects that meet all filter conditions.
+ */
 
 export const applyFilters = (data: StockData[], filters: { [key: string]: FilterCondition }) => {
   return data.filter((stock) =>

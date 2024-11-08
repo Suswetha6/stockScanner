@@ -5,28 +5,32 @@ import { applyFilters, FilterCondition } from '@/filterStocks';
 import { parsedStockData, StockData } from '@/data';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 
 interface QueryPageProps {
   setFilteredData: React.Dispatch<React.SetStateAction<StockData[]>>;
 }
 
 const QueryPage: React.FC<QueryPageProps> = ({ setFilteredData }) => {
+  // State to track errors, autocomplete options, filters, and the query input
   const [error, setError] = useState<string | null>(null);
   const [autocompleteOptions, setAutocompleteOptions] = useState<string[]>([]);
   const [filters, setFilters] = useState<{ [key: string]: FilterCondition }>({});
   const [query, setQuery] = useState<string>('');
   const navigate = useNavigate();
 
+  // Extract and normalize available field names for query validation
   const availableFields = Object.keys(parsedStockData[0]).map(field => 
-    field.toLowerCase().replace(/[^a-z0-9]/gi, '') // Normalize to lowercase and remove non-alphanumeric characters
+    field.toLowerCase().replace(/[^a-z0-9]/gi, '') 
   );
+
+  // Configure Fuse.js for autocomplete suggestions with a similarity threshold
 
   const fuse = new Fuse(availableFields, {
     threshold: 0.3,
     keys: [],
   });
   
+  // Function to parse user query into filter conditions
   const parseQuery = (queryString: string): { filters: { [key: string]: FilterCondition }; error: string | null } => {
     let foundError = false;
     const filters: { [key: string]: FilterCondition } = {};
@@ -59,6 +63,7 @@ const QueryPage: React.FC<QueryPageProps> = ({ setFilteredData }) => {
     return { filters, error: null }; // Return parsed filters and no error
   };
 
+  // Event handler to update query input, manage error state, and generate autocomplete options
   const handleQueryChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const value = e.target.value;
     setQuery(value);
@@ -67,6 +72,7 @@ const QueryPage: React.FC<QueryPageProps> = ({ setFilteredData }) => {
       setError(null);
     }
 
+    // Generate autocomplete options
     const words = value.split(/\s+/);
     const lastWordIndex = value.lastIndexOf(words[words.length - 1]);
     const isTypingLastWord = e.target.selectionStart >= lastWordIndex;
@@ -83,6 +89,7 @@ const QueryPage: React.FC<QueryPageProps> = ({ setFilteredData }) => {
     }
   };
 
+  // Event handler to run the query
   const handleRunQuery = () => {
     if (query.trim() === '') {
       setError('Please enter a valid query');
@@ -102,6 +109,7 @@ const QueryPage: React.FC<QueryPageProps> = ({ setFilteredData }) => {
     navigate('/results');
   };
 
+  // Render the query page
   return (
     <div className="flex-col items-center justify-center min-h-screen p-8">
       <Card className="mb-6 flex-1 bg-white text-black p-3 rounded-none">
@@ -154,8 +162,8 @@ const QueryPage: React.FC<QueryPageProps> = ({ setFilteredData }) => {
           <h3 className="text-lg font-medium mb-2 text-black">Example Queries:</h3>
           <ul className="list-disc pl-5 text-gray-700">
             <li>Market Capitalization &gt; 200 AND ROE &gt; 15</li>
-            <li>P/E Ratio &lt; 20 AND Dividend Yield &gt; 5</li>
-            <li>EPS Growth &gt; 10 AND Debt-to-Equity &lt; 0.5</li>
+            <li>PE Ratio &lt; 20 AND Dividend Yield &gt; 1</li>
+            <li>EPS Growth &gt; 10 AND DebttoEquity &lt; 0.5</li>
           </ul>
         </Card>
       </div>

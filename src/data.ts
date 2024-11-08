@@ -1,3 +1,4 @@
+// This is a json file that contains the data of the stocks
 import stockData from './stocks_data.json';
 
 export interface StockData{
