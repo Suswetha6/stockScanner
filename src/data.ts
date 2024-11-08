@@ -17,7 +17,7 @@ export const parsedStockData: StockData[]  =stockData.map(((stock:any)=>({
   ticker: stock["Ticker"],
   marketCapitalization: stock["Market Capitalization (B)"],
   peRatio: stock["P/E Ratio"],
-  roe: stock.ROE,
+  roe: stock["ROE (%)"],
   debtToEquity: stock["Debt-to-Equity Ratio"],
   dividendYield: stock["Dividend Yield (%)"],
   revenueGrowth: stock["Revenue Growth (%)"],

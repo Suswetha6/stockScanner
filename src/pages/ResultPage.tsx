@@ -7,7 +7,7 @@ interface ResultsPageProps {
 }
 
 export const ResultsPage: React.FC<ResultsPageProps> = ({ data }) => (
-  <div className="p-8">
+  <div className="p-8 text-black">
     <h2 className="text-xl font-semibold mb-4">Filtered Results</h2>
     {data.length > 0 ? (
       <table className="min-w-full bg-white border border-gray-200">
