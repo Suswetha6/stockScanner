@@ -1,50 +1,46 @@
-# React + TypeScript + Vite
+# Stock Screener App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A stock screening tool built with Vite, TypeScript, and React that allows users to filter and analyze stocks based on various financial metrics, such as market capitalization, P/E ratio, ROE, and more.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Interactive Query Input**: Users can input custom queries to filter stocks based on specific criteria.
+- **Example Queries**: Provides sample queries to help users get started with filtering stocks.
+- **Responsive Design**: Adapts to different screen sizes for an optimal viewing experience on both desktop and mobile.
+- **Built with Modern Stack**: Utilizes Vite for fast builds, TypeScript for type safety, and React for component-based architecture.
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Vite**: For fast and optimized development.
+- **TypeScript**: For static typing and easier maintainability.
+- **React**: For creating a component-driven UI.
+- **Tailwind CSS**: For rapid and efficient styling.
+- **PostCSS**: For extended styling capabilities.
+  
+## Installation
 
-- Configure the top-level `parserOptions` property like this:
+1. **Clone the repository:**
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+   ```bash
+   git clone https://github.com/your-username/stock-screener-app.git
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. **Navigate into project directory:**
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+  ```bash
+  cd stock-screener-app
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+3. **Install dependencies:**
+
+  ```bash
+  npm install
+
+4. **Run the development server:**
+
+  ```bash
+  npm run dev
+
+## Usage
+
+- Enter your query in the input box to screen stocks based on criteria such as market capitalization, P/E ratio, and ROE.
+- Click "Run Query" to see the filtered results.
+- Refer to Example Queries for guidance on how to structure your inputs.

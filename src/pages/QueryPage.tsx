@@ -61,7 +61,7 @@ const QueryPage: React.FC<QueryPageProps> = ({ setFilteredData }) => {
           <textarea
             value={query}
             onChange={handleQueryChange}
-            placeholder="e.g., Market Capitalization > 10000 AND ROE > 15"
+            placeholder="e.g., Market Capitalization > 100 AND ROE > 15"
             className="mb-4 text-black w-full text-md px-4 py-2 border rounded-md min-h-[120px] resize-y bg-white"
           />
           <Button onClick={handleRunQuery} className="mb-4 bg-purple-600 hover:bg-purple-700 text-white">
@@ -71,7 +71,7 @@ const QueryPage: React.FC<QueryPageProps> = ({ setFilteredData }) => {
         <Card className="w-full sm:w-[300px] lg:w-[400px] p-4 mb-6 border-outline">
           <h3 className="text-lg font-medium mb-2 text-black">Example Queries:</h3>
           <ul className="list-disc pl-5 text-gray-700">
-            <li>Market Capitalization &gt; 10000 AND ROE &gt; 15</li>
+            <li>Market Capitalization &gt; 200 AND ROE &gt; 15</li>
             <li>P/E Ratio &lt; 20 AND Dividend Yield &gt; 5</li>
             <li>EPS Growth &gt; 10 AND Debt-to-Equity Ratio &lt; 0.5</li>
           </ul>
