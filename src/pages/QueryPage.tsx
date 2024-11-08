@@ -63,6 +63,10 @@ const QueryPage: React.FC<QueryPageProps> = ({ setFilteredData }) => {
     const value = e.target.value;
     setQuery(value);
 
+    if (value.trim() === '') {
+      setError(null);
+    }
+
     const words = value.split(/\s+/);
     const lastWordIndex = value.lastIndexOf(words[words.length - 1]);
     const isTypingLastWord = e.target.selectionStart >= lastWordIndex;
@@ -142,7 +146,7 @@ const QueryPage: React.FC<QueryPageProps> = ({ setFilteredData }) => {
             </ul>
           )}
 
-          <Button onClick={handleRunQuery} className="mb-4 bg-purple-600 hover:bg-purple-700 text-white">
+          <Button onClick={handleRunQuery} className="mb-4 bg-primary hover:bg-darkPrimary text-white">
             Run Query
           </Button>
         </Card>
@@ -151,7 +155,7 @@ const QueryPage: React.FC<QueryPageProps> = ({ setFilteredData }) => {
           <ul className="list-disc pl-5 text-gray-700">
             <li>Market Capitalization &gt; 200 AND ROE &gt; 15</li>
             <li>P/E Ratio &lt; 20 AND Dividend Yield &gt; 5</li>
-            <li>EPS Growth &gt; 10 AND Debt-to-Equity Ratio &lt; 0.5</li>
+            <li>EPS Growth &gt; 10 AND Debt-to-Equity &lt; 0.5</li>
           </ul>
         </Card>
       </div>

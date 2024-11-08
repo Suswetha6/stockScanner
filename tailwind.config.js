@@ -10,7 +10,8 @@ export default {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		colors: {
-  			primary: '#676af9',
+  			primary: '#0000FF',
+				darkPrimary :'#0f2677' ,
     		background: '#edf1f8',
     		secondary: '#f6fafe',
     		outline : '#3c5e7e',
