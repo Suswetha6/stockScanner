@@ -26,18 +26,18 @@ A stock screening tool built with Vite, TypeScript, and React that allows users 
 
 2. **Navigate into project directory:**
 
-  ```bash
-  cd stock-screener-app
+    ```bash
+    cd stock-screener-app
 
 3. **Install dependencies:**
 
-  ```bash
-  npm install
+    ```bash
+    npm install
 
 4. **Run the development server:**
 
-  ```bash
-  npm run dev
+    ```bash
+    npm run dev
 
 ## Usage
 
